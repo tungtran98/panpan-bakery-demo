@@ -2037,3 +2037,6 @@ legend { padding: 0; }
 
 /* Grid items default to min-width:auto, so the horizontally scrolling upsell row widened the whole cart column on mobile. */
 .cart-layout > * { min-width: 0; }
+
+/* Public demo: hide sample ratings, sample reviews and the not-yet-obtained Bo Cong Thuong badge (not real data). */
+section[aria-labelledby="reviews-title"], .hero__sticker, .rating, .reviews, .pdp__rating, .pdp-reviews, #t-rev, #p-rev, .bct-badge { display: none !important; }
