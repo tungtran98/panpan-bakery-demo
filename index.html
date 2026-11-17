@@ -1,0 +1,643 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PanPan Bakery — Bánh kem sinh nhật, bánh ngọt giao trong ngày</title>
+  <meta name="description" content="PanPan Bakery: bánh kem sinh nhật, bánh ngọt, bánh mì, cookies làm mới mỗi sáng. Chọn size, ghi lời chúc, hẹn giờ giao tận nơi.">
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Dancing+Script:wght@700&family=Nunito:wght@400;600;700;800&subset=vietnamese&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div role="note" style="background:#3A2E39;color:#fff;font:600 13px/1.5 Nunito,system-ui,sans-serif;text-align:center;padding:8px 12px">Bản thiết kế mẫu của PanPan Bakery: sản phẩm, giá, ảnh và đánh giá chỉ để minh họa giao diện; chưa nhận đặt hàng trên trang này.</div>
+<a class="skip-link" href="#main">Bỏ qua, đến nội dung chính</a>
+
+<!-- Icon sprite + mascot artwork (original drawings) -->
+<svg class="sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></symbol>
+    <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-truck" viewBox="0 0 24 24"><path d="M3 6h11v10H3z"/><path d="M14 10h4l3 3v3h-7"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/><path d="M8.5 12l2.5 2.5 4.5-4.5"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4V5z"/></symbol>
+    <symbol id="i-facebook" viewBox="0 0 24 24"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8.5a.5.5 0 0 1 .5-.5z"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8"/></symbol>
+    <symbol id="i-tiktok" viewBox="0 0 24 24"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3c.5 3 2.5 5 5.5 5"/></symbol>
+    <symbol id="i-cash" viewBox="0 0 24 24"><rect x="2.5" y="6" width="19" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M6 9.5v5M18 9.5v5"/></symbol>
+    <symbol id="i-qr" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M14 14h3v3h-3zM20 14v.01M14 20h.01M17 20h4v-3"/></symbol>
+    <symbol id="i-filter" viewBox="0 0 24 24"><path d="M4 6h16M7 12h10M10 18h4"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
+    <g id="mascot-art">
+      <ellipse cx="100" cy="214" rx="62" ry="7" fill="#3A2E39" opacity=".12"/>
+      <ellipse cx="72" cy="202" rx="22" ry="13" fill="#3A2E39"/>
+      <ellipse cx="128" cy="202" rx="22" ry="13" fill="#3A2E39"/>
+      <path d="M42 156c0-38 26-52 58-52s58 14 58 52c0 32-24 50-58 50s-58-18-58-50z" fill="#fff" stroke="#3A2E39" stroke-width="4"/>
+      <path d="M70 126h60v50c0 14-14 22-30 22s-30-8-30-22z" fill="#FFE1E8" stroke="#3A2E39" stroke-width="3.5" stroke-linejoin="round"/>
+      <path d="M100 150c-4-6-12-3-10 3 1 4 10 9 10 9s9-5 10-9c2-6-6-9-10-3z" fill="#EF6F94"/>
+      <path d="M86 176h28" stroke="#EF6F94" stroke-width="3.5" stroke-linecap="round"/>
+      <path d="M50 134C34 124 28 106 36 96" fill="none" stroke="#3A2E39" stroke-width="18" stroke-linecap="round"/>
+      <path d="M152 138c12 6 14 16 8 24" fill="none" stroke="#3A2E39" stroke-width="18" stroke-linecap="round"/>
+      <path d="M150 150h32l-4 22h-24z" fill="#FFD98A" stroke="#3A2E39" stroke-width="3" stroke-linejoin="round"/>
+      <path d="M148 150c0-10 8-14 12-14 2-8 14-8 16 0 6 0 10 6 8 14z" fill="#fff" stroke="#3A2E39" stroke-width="3" stroke-linejoin="round"/>
+      <circle cx="168" cy="130" r="4.5" fill="#EF6F94" stroke="#3A2E39" stroke-width="2"/>
+      <circle cx="158" cy="164" r="9" fill="#3A2E39"/>
+      <circle cx="56" cy="46" r="16" fill="#3A2E39"/>
+      <circle cx="144" cy="46" r="16" fill="#3A2E39"/>
+      <ellipse cx="100" cy="80" rx="52" ry="44" fill="#fff" stroke="#3A2E39" stroke-width="4"/>
+      <path d="M74 40c-14-2-16-22 0-24 2-12 20-14 26-4 8-10 24-8 26 4 16 2 14 22 0 24z" fill="#fff" stroke="#3A2E39" stroke-width="4" stroke-linejoin="round"/>
+      <rect x="74" y="32" width="52" height="13" rx="5" fill="#fff" stroke="#3A2E39" stroke-width="4"/>
+      <circle cx="100" cy="38.5" r="3" fill="#EF6F94"/>
+      <ellipse cx="80" cy="82" rx="10" ry="13" transform="rotate(25 80 82)" fill="#3A2E39"/>
+      <ellipse cx="120" cy="82" rx="10" ry="13" transform="rotate(-25 120 82)" fill="#3A2E39"/>
+      <circle cx="81.5" cy="81" r="4.2" fill="#fff"/><circle cx="118.5" cy="81" r="4.2" fill="#fff"/>
+      <circle cx="82.6" cy="79.6" r="1.6" fill="#3A2E39"/><circle cx="117.4" cy="79.6" r="1.6" fill="#3A2E39"/>
+      <ellipse cx="65" cy="98" rx="7" ry="4.2" fill="#F7A8BF"/><ellipse cx="135" cy="98" rx="7" ry="4.2" fill="#F7A8BF"/>
+      <ellipse cx="100" cy="96" rx="5.5" ry="3.8" fill="#3A2E39"/>
+      <path d="M92 103q3.8 5 8 .6 4.2 4.4 8-.6" fill="none" stroke="#3A2E39" stroke-width="3" stroke-linecap="round"/>
+    </g>
+  </defs>
+</svg>
+
+<div class="announce" role="note">
+  Miễn phí giao nội thành cho đơn từ <strong>500.000đ</strong><span class="announce__sep" aria-hidden="true">✿</span>Đặt trước <strong>14:00</strong> để nhận bánh kem trong ngày
+</div>
+
+<header class="site-header">
+  <div class="container header-main__inner">
+    <button class="icon-btn nav-toggle" type="button" data-nav-toggle aria-controls="site-nav" aria-expanded="false" aria-label="Mở menu danh mục">
+      <svg class="icon icon-open" aria-hidden="true"><use href="#i-menu"/></svg>
+      <svg class="icon icon-close" aria-hidden="true"><use href="#i-close"/></svg>
+    </button>
+    <a class="logo" href="index.html"><img src="logo.svg" alt="PanPan Bakery — về trang chủ" width="260" height="72"></a>
+    <form class="search" role="search" data-search action="index.html">
+      <label class="visually-hidden" for="q">Tìm bánh</label>
+      <input class="search__input" id="q" name="q" type="search" placeholder="Tìm bánh dâu, socola, croissant…" autocomplete="off">
+      <button class="search__btn" type="submit" aria-label="Tìm kiếm"><svg class="icon icon--sm" aria-hidden="true"><use href="#i-search"/></svg></button>
+    </form>
+    <div class="header-actions">
+      <a class="header-link" href="#tai-khoan"><svg class="icon" aria-hidden="true"><use href="#i-user"/></svg><span class="header-link__label">Tài khoản</span></a>
+      <a class="header-link cart-link" href="cart.html" aria-label="Giỏ hàng"><svg class="icon" aria-hidden="true"><use href="#i-bag"/></svg><span class="header-link__label">Giỏ hàng</span><span class="cart-count" data-cart-count aria-label="sản phẩm trong giỏ">3</span></a>
+    </div>
+  </div>
+  <nav class="site-nav" id="site-nav" data-nav aria-label="Danh mục bánh">
+    <div class="container">
+      <ul class="site-nav__list">
+        <li><a class="site-nav__link" href="#san-pham" data-category-link="banh-kem"><span class="site-nav__dot" style="background:#EF6F94" aria-hidden="true"></span>Bánh kem sinh nhật</a></li>
+        <li><a class="site-nav__link" href="#san-pham" data-category-link="banh-ngot"><span class="site-nav__dot" style="background:#FFD98A" aria-hidden="true"></span>Bánh ngọt</a></li>
+        <li><a class="site-nav__link" href="#san-pham" data-category-link="banh-mi"><span class="site-nav__dot" style="background:#FFC8A8" aria-hidden="true"></span>Bánh mì</a></li>
+        <li><a class="site-nav__link" href="#san-pham" data-category-link="cookies"><span class="site-nav__dot" style="background:#9ED9C8" aria-hidden="true"></span>Cookies</a></li>
+        <li><a class="site-nav__link" href="#san-pham" data-category-link="theo-mua"><span class="site-nav__dot" style="background:#CDBEF5" aria-hidden="true"></span>Bánh theo mùa</a></li>
+        <li><a class="site-nav__link site-nav__link--hot" href="#theo-yeu-cau"><span class="site-nav__dot" style="background:#D24F78" aria-hidden="true"></span>Đặt bánh theo yêu cầu</a></li>
+      </ul>
+      <div class="site-nav__extra">
+        <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>
+        <span>Cần gấp? Gọi <a href="tel:0397958157">0397 958 157</a> (7:00–21:30)</span>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="hero-title">
+    <svg class="sprinkle sprinkle--1" viewBox="0 0 20 8" aria-hidden="true"><rect width="20" height="8" rx="4" fill="#9ED9C8" transform="rotate(-30 10 4)"/></svg>
+    <svg class="sprinkle sprinkle--2" viewBox="0 0 20 8" aria-hidden="true"><rect width="20" height="8" rx="4" fill="#FFD98A" transform="rotate(20 10 4)"/></svg>
+    <svg class="sprinkle sprinkle--3" viewBox="0 0 20 8" aria-hidden="true"><rect width="20" height="8" rx="4" fill="#CDBEF5" transform="rotate(-50 10 4)"/></svg>
+    <svg class="sprinkle sprinkle--4" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7" fill="#EF6F94"/></svg>
+    <div class="container hero__inner">
+      <div class="hero__content">
+        <p class="hero__eyebrow"><span class="hero__eyebrow-dot" aria-hidden="true">✿</span>Bánh làm mới mỗi sáng · Giao trong 2 giờ</p>
+        <h1 class="hero__title" id="hero-title">Bánh xinh ngọt ngào, <span class="hl">giao tận tay</span> ngay trong ngày</h1>
+        <p class="hero__lead">Gấu PanPan nướng bánh kem sinh nhật, bánh ngọt và bánh mì mỗi sáng từ bơ sữa tươi, dâu Đà Lạt và thật ít đường. Bạn chọn size, ghi lời chúc, hẹn giờ — phần còn lại để PanPan lo.</p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="#san-pham">Đặt bánh ngay <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a class="btn btn--ghost" href="#theo-yeu-cau">Bánh theo yêu cầu</a>
+        </div>
+        <ul class="hero__chips">
+          <li class="chip"><svg class="icon icon--sm" aria-hidden="true"><use href="#i-clock"/></svg>Cần bánh hôm nay? Đặt trước 14:00</li>
+          <li class="chip"><svg class="icon icon--sm" aria-hidden="true"><use href="#i-truck"/></svg>Miễn phí giao từ 500.000đ</li>
+          <li class="chip"><svg class="icon icon--sm" aria-hidden="true"><use href="#i-shield"/></svg>Kiểm tra bánh trước khi nhận</li>
+        </ul>
+      </div>
+      <div class="hero__art">
+        <div class="hero__photo-wrap">
+          <img class="hero__photo" src="https://images.unsplash.com/photo-1611293388250-580b08c4a145?auto=format&fit=crop&w=900&q=80" alt="Bánh kem dâu tây Fraisier phủ kem trắng, xếp dâu tây tươi trên mặt" width="900" height="970" fetchpriority="high">
+        </div>
+        <svg class="hero__mascot" viewBox="0 -10 200 232" role="img" aria-label="Gấu trúc PanPan đội mũ đầu bếp, vẫy tay và cầm chiếc cupcake"><use href="#mascot-art"/></svg>
+        <div class="hero__badge"><span><b>2 giờ</b>giao nhanh</span></div>
+        <div class="hero__sticker"><strong>4,9 <span class="star" aria-hidden="true">★</span></strong><span>từ 1.280 đánh giá</span></div>
+      </div>
+    </div>
+    <svg class="wave" viewBox="0 0 1440 64" preserveAspectRatio="none" aria-hidden="true" style="color:var(--c-bg)"><path fill="currentColor" d="M0 34C180 6 360 6 540 30s360 30 540 6 270-30 360-12v36H0z"/></svg>
+  </section>
+
+  <!-- CATEGORIES -->
+  <section class="section section--tight" aria-labelledby="cat-title">
+    <div class="container">
+      <div class="section-head section-head--center">
+        <p class="eyebrow">Hôm nay mình ăn gì nè?</p>
+        <h2 class="section-title" id="cat-title">Chọn theo <span class="squiggle">loại bánh</span></h2>
+      </div>
+      <div class="cat-scroller">
+        <a class="cat-tile cat-tile--pink" href="#san-pham" data-category-link="banh-kem">
+          <img class="cat-tile__img" src="https://images.unsplash.com/photo-1545696563-af8f6ec2295a?auto=format&fit=crop&w=300&h=300&q=80" alt="" width="132" height="132" loading="lazy">
+          <span class="cat-tile__name">Bánh kem sinh nhật</span>
+          <span class="cat-tile__count">24 mẫu</span>
+        </a>
+        <a class="cat-tile cat-tile--butter" href="#san-pham" data-category-link="banh-ngot">
+          <img class="cat-tile__img" src="https://images.unsplash.com/photo-1762032313029-7d799c618eae?auto=format&fit=crop&w=300&h=300&q=80" alt="" width="132" height="132" loading="lazy">
+          <span class="cat-tile__name">Bánh ngọt</span>
+          <span class="cat-tile__count">18 món</span>
+        </a>
+        <a class="cat-tile cat-tile--peach" href="#san-pham" data-category-link="banh-mi">
+          <img class="cat-tile__img" src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=300&h=300&q=80" alt="" width="132" height="132" loading="lazy">
+          <span class="cat-tile__name">Bánh mì</span>
+          <span class="cat-tile__count">9 loại</span>
+        </a>
+        <a class="cat-tile cat-tile--mint" href="#san-pham" data-category-link="cookies">
+          <img class="cat-tile__img" src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=300&h=300&q=80" alt="" width="132" height="132" loading="lazy">
+          <span class="cat-tile__name">Cookies</span>
+          <span class="cat-tile__count">12 vị</span>
+        </a>
+        <a class="cat-tile cat-tile--lavender" href="#san-pham" data-category-link="theo-mua">
+          <img class="cat-tile__img" src="https://images.unsplash.com/photo-1777426224524-794948c3980b?auto=format&fit=crop&w=300&h=300&q=80" alt="" width="132" height="132" loading="lazy">
+          <span class="cat-tile__name">Bánh theo mùa</span>
+          <span class="cat-tile__count">20/11 &amp; Noel</span>
+        </a>
+      </div>
+      <div class="occasions" aria-label="Chọn theo dịp">
+        <span class="occasions__label">Theo dịp:</span>
+        <a class="chip occasion-chip" href="#san-pham" data-category-link="banh-kem">🎂 Sinh nhật</a>
+        <a class="chip occasion-chip" href="#san-pham" data-category-link="theo-mua">💐 Tri ân thầy cô 20/11</a>
+        <a class="chip occasion-chip" href="#san-pham" data-category-link="banh-kem">🧸 Cho bé</a>
+        <a class="chip occasion-chip" href="#san-pham" data-category-link="banh-ngot">☕ Tiệc trà văn phòng</a>
+        <a class="chip occasion-chip" href="#san-pham" data-category-link="theo-mua">🎄 Giáng sinh</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHOP -->
+  <section class="section section--white" id="san-pham" aria-labelledby="shop-title">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Ra lò hôm nay</p>
+          <h2 class="section-title" id="shop-title">Bánh tươi mỗi ngày</h2>
+          <p class="section-sub">Giá hiển thị là giá size nhỏ nhất. Bánh kem chọn size, cốt bánh và lời chúc ở bước tiếp theo.</p>
+        </div>
+      </div>
+
+      <div class="shop-toolbar">
+        <button class="btn btn--ghost btn--sm filter-toggle" type="button" data-filter-panel-toggle aria-controls="filter-panel" aria-expanded="false">
+          <svg class="icon icon--sm" aria-hidden="true"><use href="#i-filter"/></svg>Bộ lọc
+        </button>
+        <div class="filter-panel" id="filter-panel" data-filter-panel>
+          <div class="field">
+            <label class="field__label" for="f-category">Loại bánh</label>
+            <select class="select" id="f-category" data-filter="category">
+              <option value="all">Tất cả</option>
+              <option value="banh-kem">Bánh kem sinh nhật</option>
+              <option value="banh-ngot">Bánh ngọt</option>
+              <option value="banh-mi">Bánh mì</option>
+              <option value="cookies">Cookies</option>
+              <option value="theo-mua">Bánh theo mùa</option>
+            </select>
+          </div>
+          <div class="field">
+            <label class="field__label" for="f-price">Khoảng giá</label>
+            <select class="select" id="f-price" data-filter="price">
+              <option value="all">Mọi mức giá</option>
+              <option value="0-100000">Dưới 100.000đ</option>
+              <option value="100000-300000">100.000đ – 300.000đ</option>
+              <option value="300000-500000">300.000đ – 500.000đ</option>
+            </select>
+          </div>
+          <div class="field">
+            <label class="field__label" for="f-flavor">Vị</label>
+            <select class="select" id="f-flavor" data-filter="flavor">
+              <option value="all">Tất cả vị</option>
+              <option value="dau">Dâu tây</option>
+              <option value="socola">Socola</option>
+              <option value="vani">Vani &amp; sữa</option>
+              <option value="tra-xanh">Trà xanh</option>
+              <option value="trai-cay">Trái cây</option>
+              <option value="bo">Bơ &amp; phô mai</option>
+            </select>
+          </div>
+          <div class="field field--size">
+            <span class="field__label" id="size-label">Size bánh kem</span>
+            <div class="size-chips" role="group" aria-labelledby="size-label">
+              <button class="chip-btn" type="button" data-filter-chip data-name="size" data-value="all">Tất cả</button>
+              <button class="chip-btn" type="button" data-filter-chip data-name="size" data-value="16">16 cm</button>
+              <button class="chip-btn" type="button" data-filter-chip data-name="size" data-value="20">20 cm</button>
+              <button class="chip-btn" type="button" data-filter-chip data-name="size" data-value="24">24 cm</button>
+            </div>
+          </div>
+          <div class="filter-panel__foot">
+            <p class="result-line" aria-live="polite"><strong data-result-count>12</strong> sản phẩm</p>
+            <button class="link-btn" type="button" data-filter-reset>Xoá bộ lọc</button>
+          </div>
+        </div>
+        <div class="toolbar-sort">
+          <label class="toolbar-sort__label" for="f-sort">Sắp xếp</label>
+          <select class="select" id="f-sort" data-sort aria-label="Sắp xếp sản phẩm">
+            <option value="popular">Bán chạy nhất</option>
+            <option value="new">Mới nhất</option>
+            <option value="price-asc">Giá thấp → cao</option>
+            <option value="price-desc">Giá cao → thấp</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="product-grid" data-product-grid>
+        <article class="card" data-product data-name="Bánh kem dâu tây Fraisier banh kem dau tay" data-category="banh-kem" data-price="350000" data-sizes="16,20,24" data-flavor="dau,vani" data-popular="1">
+          <a class="card__media" href="product.html" tabindex="-1" aria-hidden="true">
+            <img class="card__img" src="https://images.unsplash.com/photo-1611293388250-580b08c4a145?auto=format&fit=crop&w=600&h=600&q=80" alt="" width="600" height="600" loading="lazy">
+            <span class="card__badges"><span class="badge badge--pink">Bán chạy</span></span>
+          </a>
+          <button class="fav-btn" type="button" data-fav aria-pressed="false" aria-label="Lưu Bánh kem dâu tây Fraisier vào yêu thích"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.3-9-8.6C1.6 8.2 3.6 5 6.8 5c2 0 3.4 1.1 4.2 2.4h2C13.8 6.1 15.2 5 17.2 5c3.2 0 5.2 3.2 3.8 6.4-2 4.3-9 8.6-9 8.6z"/></svg></button>
+          <div class="card__body">
+            <p class="card__meta">Size 16 · 20 · 24 cm</p>
+            <h3 class="card__title"><a href="product.html">Bánh kem dâu tây Fraisier</a></h3>
+            <span class="rating"><span class="rating__stars" aria-hidden="true">★★★★★</span>4,9 (312)</span>
+            <div class="card__tags"><span class="tag">✓ Chọn size</span><span class="tag">✓ Lời chúc</span></div>
+            <p class="card__price"><small>Từ</small> 350.000đ</p>
+          </div>
+          <div class="card__cta"><button class="btn btn--primary" type="button" data-quick-add="Bánh kem dâu tây Fraisier · 16 cm">Thêm vào giỏ</button></div>
+        </article>
+
+        <article class="card" data-product data-name="Bánh kem socola chảy banh kem socola" data-category="banh-kem" data-price="390000" data-sizes="16,20,24" data-flavor="socola" data-popular="2">
+          <a class="card__media" href="product.html" tabindex="-1" aria-hidden="true">
+            <img class="card__img" src="https://images.unsplash.com/photo-1702744382319-20efefc9dc19?auto=format&fit=crop&w=600&h=600&q=80" alt="" width="600" height="600" loading="lazy">
+            <span class="card__badges"><span class="badge badge--butter">Cần đặt trước 24h</span></span>
+          </a>
+          <button class="fav-btn" type="button" data-fav aria-pressed="false" aria-label="Lưu Bánh kem socola chảy vào yêu thích"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.3-9-8.6C1.6 8.2 3.6 5 6.8 5c2 0 3.4 1.1 4.2 2.4h2C13.8 6.1 15.2 5 17.2 5c3.2 0 5.2 3.2 3.8 6.4-2 4.3-9 8.6-9 8.6z"/></svg></button>
+          <div class="card__body">
+            <p class="card__meta">Size 16 · 20 · 24 cm</p>
+            <h3 class="card__title"><a href="product.html">Bánh kem socola chảy</a></h3>
+            <span class="rating"><span class="rating__stars" aria-hidden="true">★★★★★</span>4,8 (204)</span>
+            <div class="card__tags"><span class="tag">✓ Chọn size</span><span class="tag">✓ Lời chúc</span></div>
+            <p class="card__price"><small>Từ</small> 390.000đ</p>
+          </div>
+          <div class="card__cta"><button class="btn btn--primary" type="button" data-quick-add="Bánh kem socola chảy · 16 cm">Thêm vào giỏ</button></div>
+        </article>
+
+        <article class="card" data-product data-name="Croissant bơ Pháp banh sung bo" data-category="banh-ngot" data-price="35000" data-sizes="" data-flavor="bo" data-popular="3">
+          <a class="card__media" href="product.html" tabindex="-1" aria-hidden="true">
+            <img class="card__img" src="https://images.unsplash.com/photo-1623334044303-241021148842?auto=format&fit=crop&w=600&h=600&q=80" alt="" width="600" height="600" loading="lazy">
+            <span class="card__badges"><span class="badge badge--mint">Có sẵn · giao 2h</span></span>
+          </a>
+          <button class="fav-btn" type="button" data-fav aria-pressed="false" aria-label="Lưu Croissant bơ Pháp vào yêu thích"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.3-9-8.6C1.6 8.2 3.6 5 6.8 5c2 0 3.4 1.1 4.2 2.4h2C13.8 6.1 15.2 5 17.2 5c3.2 0 5.2 3.2 3.8 6.4-2 4.3-9 8.6-9 8.6z"/></svg></button>
+          <div class="card__body">
+            <p class="card__meta">1 chiếc · 80 g</p>
+            <h3 class="card__title"><a href="product.html">Croissant bơ Pháp</a></h3>
+            <span class="rating"><span class="rating__stars" aria-hidden="true">★★★★★</span>4,9 (526)</span>
+            <p class="card__price">35.000đ</p>
+          </div>
+          <div class="card__cta"><button class="btn btn--primary" type="button" data-quick-add="Croissant bơ Pháp">Thêm vào giỏ</button></div>
+        </article>
+
+        <article class="card" data-product data-name="Bánh kem vani Tiệc nhỏ nến màu banh kem vani" data-category="banh-kem" data-price="320000" data-sizes="16,20,24" data-flavor="vani" data-popular="4">
+          <a class="card__media" href="product.html" tabindex="-1" aria-hidden="true">
+            <img class="card__img" src="https://images.unsplash.com/photo-1545696563-af8f6ec2295a?auto=format&fit=crop&w=600&h=600&q=80" alt="" width="600" height="600" loading="lazy">
+          </a>
+          <button class="fav-btn" type="button" data-fav aria-pressed="false" aria-label="Lưu Bánh kem vani Tiệc nhỏ vào yêu thích"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.3-9-8.6C1.6 8.2 3.6 5 6.8 5c2 0 3.4 1.1 4.2 2.4h2C13.8 6.1 15.2 5 17.2 5c3.2 0 5.2 3.2 3.8 6.4-2 4.3-9 8.6-9 8.6z"/></svg></button>
+          <div class="card__body">
+            <p class="card__meta">Size 16 · 20 · 24 cm · tặng nến màu</p>
+            <h3 class="card__title"><a href="product.html">Bánh kem vani “Tiệc nhỏ”</a></h3>
+            <span class="rating"><span class="rating__stars" aria-hidden="true">★★★★★</span>4,8 (187)</span>
+            <div class="card__tags"><span class="tag">✓ Chọn size</span><span class="tag">✓ Lời chúc</span></div>
+            <p class="card__price"><small>Từ</small> 320.000đ</p>
+          </div>
+          <div class="card__cta"><button class="btn btn--primary" type="button" data-quick-add="Bánh kem vani “Tiệc nhỏ” · 16 cm">Thêm vào giỏ</button></div>
+        </article>
+
+        <article class="card" data-product data-name="Bánh mousse trà xanh banh kem tra xanh matcha" data-category="banh-kem" data-price="370000" data-sizes="16,20" data-flavor="tra-xanh" data-popular="5" data-new="3">
+          <a class="card__media" href="product.html" tabindex="-1" aria-hidden="true">
+            <img class="card__img" src="https://images.unsplash.com/photo-1759324351433-c5a1063f8ac6?auto=format&fit=crop&w=600&h=600&q=80" alt="" width="600" height="600" loading="lazy">
+            <span class="card__badges"><span class="badge badge--lavender">Mới</span></span>
+          </a>
+          <button class="fav-btn" type="button" data-fav aria-pressed="false" aria-label="Lưu Bánh mousse trà xanh vào yêu thích"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.3-9-8.6C1.6 8.2 3.6 5 6.8 5c2 0 3.4 1.1 4.2 2.4h2C13.8 6.1 15.2 5 17.2 5c3.2 0 5.2 3.2 3.8 6.4-2 4.3-9 8.6-9 8.6z"/></svg></button>
+          <div class="card__body">
+            <p class="card__meta">Size 16 · 20 cm</p>
+            <h3 class="card__title"><a href="product.html">Bánh mousse trà xanh</a></h3>
+            <span class="rating"><span class="rating__stars" aria-hidden="true">★★★★★</span>4,9 (58)</span>
+            <div class="card__tags"><span class="tag">✓ Ít ngọt</span><span class="tag">✓ Lời chúc</span></div>
+            <p class="card__price"><small>Từ</small> 370.000đ</p>
+          </div>
+          <div class="card__cta"><button class="btn btn--primary" type="button" data-quick-add="Bánh mousse trà xanh · 16 cm">Thêm vào giỏ</button></div>
+        </article>
+
+        <article class="card" data-product data-name="Cheesecake New York banh pho mai" data-category="banh-ngot" data-price="290000" data-sizes="16" data-flavor="bo" data-popular="6">
+          <a class="card__media" href="product.html" tabindex="-1" aria-hidden="true">
+            <img class="card__img" src="https://images.unsplash.com/photo-1774988867972-98caecc776d8?auto=format&fit=crop&w=600&h=600&q=80" alt="" width="600" height="600" loading="lazy">
+          </a>
+          <button class="fav-btn" type="button" data-fav aria-pressed="false" aria-label="Lưu Cheesecake New York vào yêu thích"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.3-9-8.6C1.6 8.2 3.6 5 6.8 5c2 0 3.4 1.1 4.2 2.4h2C13.8 6.1 15.2 5 17.2 5c3.2 0 5.2 3.2 3.8 6.4-2 4.3-9 8.6-9 8.6z"/></svg></button>
+          <div class="card__body">
+            <p class="card__meta">Nguyên bánh 16 cm · 6–8 phần</p>
+            <h3 class="card__title"><a href="product.html">Cheesecake New York</a></h3>
+            <span class="rating"><span class="rating__stars" aria-hidden="true">★★★★★</span>4,8 (96)</span>
+            <p class="card__price">290.000đ</p>
+          </div>
+          <div class="card__cta"><button class="btn btn--primary" type="button" data-quick-add="Cheesecake New York">Thêm vào giỏ</button></div>
+        </article>
+
+        <article class="card" data-product data-name="Bánh mì thịt PanPan banh mi viet nam" data-category="banh-mi" data-price="30000" data-sizes="" data-flavor="" data-popular="7">
+          <a class="card__media" href="product.html" tabindex="-1" aria-hidden="true">
+            <img class="card__img" src="https://images.unsplash.com/photo-1600454309261-3dc9b7597637?auto=format&fit=crop&w=600&h=600&q=80" alt="" width="600" height="600" loading="lazy">
+            <span class="card__badges"><span class="badge badge--mint">Có sẵn · giao 2h</span></span>
+          </a>
+          <button class="fav-btn" type="button" data-fav aria-pressed="false" aria-label="Lưu Bánh mì thịt PanPan vào yêu thích"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.3-9-8.6C1.6 8.2 3.6 5 6.8 5c2 0 3.4 1.1 4.2 2.4h2C13.8 6.1 15.2 5 17.2 5c3.2 0 5.2 3.2 3.8 6.4-2 4.3-9 8.6-9 8.6z"/></svg></button>
+          <div class="card__body">
+            <p class="card__meta">Pate nhà làm, chả lụa, đồ chua</p>
+            <h3 class="card__title"><a href="product.html">Bánh mì thịt PanPan</a></h3>
+            <span class="rating"><span class="rating__stars" aria-hidden="true">★★★★★</span>4,7 (341)</span>
+            <p class="card__price">30.000đ</p>
+          </div>
+          <div class="card__cta"><button class="btn btn--primary" type="button" data-quick-add="Bánh mì thịt PanPan">Thêm vào giỏ</button></div>
+        </article>
+
+        <article class="card" data-product data-name="Cookies socola chip hộp 6 banh quy" data-category="cookies" data-price="89000" data-sizes="" data-flavor="socola" data-popular="8">
+          <a class="card__media" href="product.html" tabindex="-1" aria-hidden="true">
+            <img class="card__img" src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=600&h=600&q=80" alt="" width="600" height="600" loading="lazy">
+          </a>
+          <button class="fav-btn" type="button" data-fav aria-pressed="false" aria-label="Lưu Cookies socola chip vào yêu thích"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.3-9-8.6C1.6 8.2 3.6 5 6.8 5c2 0 3.4 1.1 4.2 2.4h2C13.8 6.1 15.2 5 17.2 5c3.2 0 5.2 3.2 3.8 6.4-2 4.3-9 8.6-9 8.6z"/></svg></button>
+          <div class="card__body">
+            <p class="card__meta">Hộp 6 chiếc</p>
+            <h3 class="card__title"><a href="product.html">Cookies socola chip</a></h3>
+            <span class="rating"><span class="rating__stars" aria-hidden="true">★★★★★</span>4,9 (402)</span>
+            <p class="card__price">89.000đ</p>
+          </div>
+          <div class="card__cta"><button class="btn btn--primary" type="button" data-quick-add="Cookies socola chip (hộp 6)">Thêm vào giỏ</button></div>
+        </article>
+
+        <article class="card" data-product data-name="Hộp macaron 6 vị banh macaron" data-category="banh-ngot" data-price="150000" data-sizes="" data-flavor="dau,socola,tra-xanh" data-popular="9">
+          <a class="card__media" href="product.html" tabindex="-1" aria-hidden="true">
+            <img class="card__img" src="https://images.unsplash.com/photo-1702745572427-c7c772b45ff3?auto=format&fit=crop&w=600&h=600&q=80" alt="" width="600" height="600" loading="lazy">
+          </a>
+          <button class="fav-btn" type="button" data-fav aria-pressed="false" aria-label="Lưu Hộp macaron 6 vị vào yêu thích"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.3-9-8.6C1.6 8.2 3.6 5 6.8 5c2 0 3.4 1.1 4.2 2.4h2C13.8 6.1 15.2 5 17.2 5c3.2 0 5.2 3.2 3.8 6.4-2 4.3-9 8.6-9 8.6z"/></svg></button>
+          <div class="card__body">
+            <p class="card__meta">Dâu · socola · trà xanh…</p>
+            <h3 class="card__title"><a href="product.html">Hộp macaron 6 vị</a></h3>
+            <span class="rating"><span class="rating__stars" aria-hidden="true">★★★★★</span>4,7 (88)</span>
+            <p class="card__price">150.000đ</p>
+          </div>
+          <div class="card__cta"><button class="btn btn--primary" type="button" data-quick-add="Hộp macaron 6 vị">Thêm vào giỏ</button></div>
+        </article>
+
+        <article class="card" data-product data-name="Hộp cupcake 20/11 Tri ân banh cupcake" data-category="theo-mua" data-price="180000" data-sizes="" data-flavor="vani,dau" data-popular="10" data-new="2">
+          <a class="card__media" href="product.html" tabindex="-1" aria-hidden="true">
+            <img class="card__img" src="https://images.unsplash.com/photo-1778904912387-f9d856a8526a?auto=format&fit=crop&w=600&h=600&q=80" alt="" width="600" height="600" loading="lazy">
+            <span class="card__badges"><span class="badge badge--pink">Theo mùa</span><span class="badge badge--butter">Chỉ đến 20/11</span></span>
+          </a>
+          <button class="fav-btn" type="button" data-fav aria-pressed="false" aria-label="Lưu Hộp cupcake 20/11 vào yêu thích"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.3-9-8.6C1.6 8.2 3.6 5 6.8 5c2 0 3.4 1.1 4.2 2.4h2C13.8 6.1 15.2 5 17.2 5c3.2 0 5.2 3.2 3.8 6.4-2 4.3-9 8.6-9 8.6z"/></svg></button>
+          <div class="card__body">
+            <p class="card__meta">Hộp 6 chiếc · kèm thiệp</p>
+            <h3 class="card__title"><a href="product.html">Hộp cupcake 20/11 “Tri ân”</a></h3>
+            <span class="rating"><span class="rating__stars" aria-hidden="true">★★★★★</span>4,9 (41)</span>
+            <p class="card__price">180.000đ</p>
+          </div>
+          <div class="card__cta"><button class="btn btn--primary" type="button" data-quick-add="Hộp cupcake 20/11 “Tri ân”">Thêm vào giỏ</button></div>
+        </article>
+
+        <article class="card" data-product data-name="Bánh mì sourdough nguyên cám banh mi" data-category="banh-mi" data-price="85000" data-sizes="" data-flavor="" data-popular="11">
+          <a class="card__media" href="product.html" tabindex="-1" aria-hidden="true">
+            <img class="card__img" src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&h=600&q=80" alt="" width="600" height="600" loading="lazy">
+          </a>
+          <button class="fav-btn" type="button" data-fav aria-pressed="false" aria-label="Lưu Bánh mì sourdough nguyên cám vào yêu thích"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.3-9-8.6C1.6 8.2 3.6 5 6.8 5c2 0 3.4 1.1 4.2 2.4h2C13.8 6.1 15.2 5 17.2 5c3.2 0 5.2 3.2 3.8 6.4-2 4.3-9 8.6-9 8.6z"/></svg></button>
+          <div class="card__body">
+            <p class="card__meta">Ổ 500 g · ủ men tự nhiên 24 giờ</p>
+            <h3 class="card__title"><a href="product.html">Bánh mì sourdough nguyên cám</a></h3>
+            <span class="rating"><span class="rating__stars" aria-hidden="true">★★★★★</span>4,8 (73)</span>
+            <p class="card__price">85.000đ</p>
+          </div>
+          <div class="card__cta"><button class="btn btn--primary" type="button" data-quick-add="Bánh mì sourdough nguyên cám">Thêm vào giỏ</button></div>
+        </article>
+
+        <article class="card" data-product data-name="Bánh Giáng sinh cam & hương thảo banh noel" data-category="theo-mua" data-price="450000" data-sizes="16,20" data-flavor="trai-cay" data-popular="12" data-new="1">
+          <a class="card__media" href="product.html" tabindex="-1" aria-hidden="true">
+            <img class="card__img" src="https://images.unsplash.com/photo-1777426224524-794948c3980b?auto=format&fit=crop&w=600&h=600&q=80" alt="" width="600" height="600" loading="lazy">
+            <span class="card__badges"><span class="badge badge--lavender">Mới</span><span class="badge badge--butter">Nhận đặt từ 1/12</span></span>
+          </a>
+          <button class="fav-btn" type="button" data-fav aria-pressed="false" aria-label="Lưu Bánh Giáng sinh cam và hương thảo vào yêu thích"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.3-9-8.6C1.6 8.2 3.6 5 6.8 5c2 0 3.4 1.1 4.2 2.4h2C13.8 6.1 15.2 5 17.2 5c3.2 0 5.2 3.2 3.8 6.4-2 4.3-9 8.6-9 8.6z"/></svg></button>
+          <div class="card__body">
+            <p class="card__meta">Size 16 · 20 cm</p>
+            <h3 class="card__title"><a href="product.html">Bánh Giáng sinh cam &amp; hương thảo</a></h3>
+            <span class="rating"><span class="rating__stars" aria-hidden="true">★★★★★</span>Mới ra mắt</span>
+            <p class="card__price"><small>Từ</small> 450.000đ</p>
+          </div>
+          <div class="card__cta"><button class="btn btn--soft" type="button" data-quick-add="Bánh Giáng sinh cam &amp; hương thảo · 16 cm">Đặt trước</button></div>
+        </article>
+      </div>
+
+      <div class="empty-state" data-empty hidden>
+        <svg viewBox="40 -12 120 140" role="img" aria-label="Gấu PanPan"><use href="#mascot-art"/></svg>
+        <h3>Ôi, chưa có bánh nào khớp bộ lọc</h3>
+        <p>Thử bỏ bớt điều kiện hoặc gọi PanPan — tụi mình có thể làm riêng cho bạn.</p>
+        <button class="btn btn--soft btn--sm" type="button" data-filter-reset>Xem tất cả bánh</button>
+      </div>
+
+      <div class="view-all"><a class="btn btn--ghost" href="#san-pham">Xem toàn bộ 72 món <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+    </div>
+  </section>
+  <svg class="wave" viewBox="0 0 1440 64" preserveAspectRatio="none" aria-hidden="true" style="color:#fff;background:var(--c-bg)"><path fill="currentColor" d="M0 0h1440v28c-180 30-360 30-540 8S540 6 360 22 90 44 0 30z"/></svg>
+
+  <!-- CUSTOM ORDER -->
+  <section class="section" id="theo-yeu-cau" aria-labelledby="custom-title">
+    <div class="container">
+      <div class="custom">
+        <div class="custom__media">
+          <img class="custom__photo" src="https://images.unsplash.com/photo-1786114352364-b354a97bfbce?auto=format&fit=crop&w=900&q=80" alt="Thợ bánh đang bắt kem trang trí một chiếc bánh kem" width="900" height="675" loading="lazy">
+          <p class="speech">Gửi ảnh mẫu, PanPan làm y chang cho bạn!</p>
+          <svg class="custom__mascot" viewBox="0 -10 200 232" aria-hidden="true"><use href="#mascot-art"/></svg>
+        </div>
+        <div>
+          <p class="eyebrow">Bánh có một không hai</p>
+          <h2 class="custom__title" id="custom-title">Đặt bánh theo yêu cầu</h2>
+          <p class="custom__text">Bánh in ảnh, tạo hình nhân vật bé yêu, bánh tầng cho thôi nôi hay tiệc cưới nhỏ — gửi ý tưởng, PanPan phác thảo và báo giá trong 2 giờ làm việc.</p>
+          <ul class="custom__list">
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Phác thảo miễn phí, chỉnh đến khi bạn ưng</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Đặt trước tối thiểu 3 ngày</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Giá từ 650.000đ, đặt cọc 30% qua VietQR</li>
+          </ul>
+          <div class="custom__actions">
+            <a class="btn btn--primary" href="#zalo"><svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg>Gửi ý tưởng qua Zalo</a>
+            <a class="btn btn--ghost" href="tel:0397958157"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>0397 958 157</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW TO ORDER -->
+  <section class="section section--butter" aria-labelledby="steps-title">
+    <div class="container">
+      <div class="section-head section-head--center">
+        <p class="eyebrow">Dễ như ăn bánh</p>
+        <h2 class="section-title" id="steps-title">Đặt bánh chỉ <span class="squiggle">3 bước</span></h2>
+      </div>
+      <ol class="steps">
+        <li class="step">
+          <div class="step__art"><span class="step__num" aria-hidden="true">1</span>
+            <svg viewBox="0 0 112 112" aria-hidden="true"><rect x="34" y="14" width="44" height="80" rx="9" fill="#fff" stroke="#3A2E39" stroke-width="3.5"/><rect x="40" y="24" width="32" height="44" rx="4" fill="#FFE1E8"/><path d="M46 60h20v-9a3 3 0 0 0-3-3H49a3 3 0 0 0-3 3z" fill="#fff" stroke="#3A2E39" stroke-width="2.5"/><path d="M46 54c3 2 6 2 7 0 2 2 5 2 6.5 0 1.5 2 4.5 2 6.5 0" fill="none" stroke="#EF6F94" stroke-width="2.5"/><path d="M56 48v-6" stroke="#3A2E39" stroke-width="2.5" stroke-linecap="round"/><circle cx="56" cy="38" r="3" fill="#FFB547"/><rect x="44" y="76" width="24" height="8" rx="4" fill="#D24F78"/></svg>
+          </div>
+          <h3 class="step__title">Chọn bánh &amp; size</h3>
+          <p class="step__text">Lọc theo loại, vị, giá. Mỗi size ghi rõ số người ăn và giá tiền.</p>
+        </li>
+        <li class="step">
+          <div class="step__art"><span class="step__num" aria-hidden="true">2</span>
+            <svg viewBox="0 0 112 112" aria-hidden="true"><rect x="18" y="26" width="60" height="58" rx="8" fill="#fff" stroke="#3A2E39" stroke-width="3.5"/><path d="M18 42h60" stroke="#3A2E39" stroke-width="3.5"/><path d="M32 20v12M64 20v12" stroke="#3A2E39" stroke-width="3.5" stroke-linecap="round"/><rect x="30" y="52" width="10" height="10" rx="2" fill="#CDBEF5"/><rect x="46" y="52" width="10" height="10" rx="2" fill="#EF6F94"/><rect x="30" y="66" width="10" height="10" rx="2" fill="#CDBEF5"/><path d="M70 94l4-14 20-20 10 10-20 20z" fill="#FFD98A" stroke="#3A2E39" stroke-width="3" stroke-linejoin="round"/><path d="M70 94l4-14 10 10z" fill="#fff" stroke="#3A2E39" stroke-width="3" stroke-linejoin="round"/></svg>
+          </div>
+          <h3 class="step__title">Ghi lời chúc, hẹn giờ</h3>
+          <p class="step__text">Viết lời chúc tối đa 30 ký tự, chọn ngày và khung giờ giao 2 tiếng.</p>
+        </li>
+        <li class="step">
+          <div class="step__art"><span class="step__num" aria-hidden="true">3</span>
+            <svg viewBox="0 0 112 112" aria-hidden="true"><path d="M12 48h10M8 60h14M14 72h8" stroke="#2F9E7A" stroke-width="4" stroke-linecap="round" opacity=".5"/><rect x="30" y="44" width="56" height="44" rx="6" fill="#fff" stroke="#3A2E39" stroke-width="3.5"/><path d="M30 58h56" stroke="#3A2E39" stroke-width="3.5"/><rect x="52" y="44" width="12" height="44" fill="#EF6F94"/><path d="M58 44c-6-10-18-10-16-2 2 5 16 2 16 2zm0 0c6-10 18-10 16-2-2 5-16 2-16 2z" fill="#FFD98A" stroke="#3A2E39" stroke-width="3" stroke-linejoin="round"/></svg>
+          </div>
+          <h3 class="step__title">Nhận bánh, trả tiền sau</h3>
+          <p class="step__text">Kiểm tra bánh trước khi nhận. Trả tiền mặt (COD) hoặc quét VietQR.</p>
+        </li>
+      </ol>
+      <ul class="leadtime" aria-label="Thời gian đặt trước">
+        <li class="chip"><svg class="icon icon--sm" aria-hidden="true"><use href="#i-clock"/></svg>Bánh có sẵn: giao trong 2 giờ</li>
+        <li class="chip"><svg class="icon icon--sm" aria-hidden="true"><use href="#i-clock"/></svg>Bánh kem: đặt trước 14:00 để nhận trong ngày</li>
+        <li class="chip"><svg class="icon icon--sm" aria-hidden="true"><use href="#i-clock"/></svg>Bánh theo yêu cầu: đặt trước 3 ngày</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="section" aria-labelledby="reviews-title">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Khách nói gì về PanPan</p>
+          <h2 class="section-title" id="reviews-title">Ngọt từ bánh đến lời khen</h2>
+        </div>
+      </div>
+      <div class="reviews">
+        <div class="score">
+          <div class="score__top">
+            <p class="score__num">4,9</p>
+            <div>
+              <p class="score__stars" aria-hidden="true">★★★★★</p>
+              <p class="score__count">trên 5 · từ 1.280 đánh giá</p>
+            </div>
+          </div>
+          <div class="score__bars" aria-label="Phân bố số sao">
+            <div class="bar-row"><span>5★</span><span class="bar-row__track"><span class="bar-row__fill" style="width:92%"></span></span><span>92%</span></div>
+            <div class="bar-row"><span>4★</span><span class="bar-row__track"><span class="bar-row__fill" style="width:6%"></span></span><span>6%</span></div>
+            <div class="bar-row"><span>3★</span><span class="bar-row__track"><span class="bar-row__fill" style="width:1%"></span></span><span>1%</span></div>
+            <div class="bar-row"><span>2★</span><span class="bar-row__track"><span class="bar-row__fill" style="width:1%"></span></span><span>1%</span></div>
+          </div>
+          <img class="score__photo" src="https://images.unsplash.com/photo-1608790672275-309c02d888ff?auto=format&fit=crop&w=720&q=80" alt="Một bé đang thổi nến trên bánh sinh nhật" width="720" height="450" loading="lazy">
+          <p class="score__photo-cap">Khoảnh khắc sinh nhật — gửi ảnh để nhận mã giảm 10%</p>
+        </div>
+        <div class="review-list">
+          <article class="review-card">
+            <div class="review-card__head"><span class="avatar avatar--pink" aria-hidden="true">H</span><div><p class="review-card__name">Chị Ngọc Hân</p><p class="review-card__meta">Phú Nhuận · 2 tuần trước</p></div></div>
+            <p class="review-card__stars" aria-label="5 trên 5 sao">★★★★★</p>
+            <p class="review-card__text">Đặt bánh dâu size 20 lúc 9 giờ sáng, 4 giờ chiều đã có bánh. Kem nhẹ, không ngấy, dâu tươi thật. Bé nhà mình mê nhất dòng chữ viết trên mặt bánh!</p>
+            <span class="review-card__product">🎂 Bánh kem dâu tây Fraisier · 20 cm</span>
+          </article>
+          <article class="review-card">
+            <div class="review-card__head"><span class="avatar avatar--mint" aria-hidden="true">K</span><div><p class="review-card__name">Anh Minh Khôi</p><p class="review-card__meta">Thủ Đức · 1 tháng trước</p></div></div>
+            <p class="review-card__stars" aria-label="5 trên 5 sao">★★★★★</p>
+            <p class="review-card__text">Chọn khung 18–20 giờ cho tiệc công ty, shipper gọi trước 15 phút, hộp bánh chắc chắn. Socola đậm mà không quá ngọt, cả phòng khen.</p>
+            <span class="review-card__product">🍫 Bánh kem socola chảy · 24 cm</span>
+          </article>
+          <article class="review-card">
+            <div class="review-card__head"><span class="avatar avatar--butter" aria-hidden="true">T</span><div><p class="review-card__name">Chị Thu Trang</p><p class="review-card__meta">Quận 1 · 3 ngày trước</p></div></div>
+            <p class="review-card__stars" aria-label="5 trên 5 sao">★★★★★</p>
+            <p class="review-card__text">Croissant giòn tan, thơm bơ, sáng nào cũng ghé. Nhập mã PANPAN10 cho đơn đầu, chuyển khoản quét QR là xong, tiện ghê.</p>
+            <span class="review-card__product">🥐 Croissant bơ Pháp</span>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <svg class="wave" viewBox="0 0 1440 64" preserveAspectRatio="none" aria-hidden="true"><path fill="currentColor" d="M0 34C180 6 360 6 540 30s360 30 540 6 270-30 360-12v36H0z"/></svg>
+  <svg class="footer-mascot" viewBox="0 -10 200 232" aria-hidden="true"><use href="#mascot-art"/></svg>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="logo" href="index.html"><img src="logo.svg" alt="PanPan Bakery" width="260" height="72" loading="lazy"></a>
+        <p>Tiệm bánh nhỏ của gấu PanPan — bánh làm mới mỗi sáng, ít đường, nhiều yêu thương.</p>
+        <div class="social">
+          <a class="social__link" href="#facebook" aria-label="Facebook PanPan Bakery"><svg class="icon" aria-hidden="true"><use href="#i-facebook"/></svg></a>
+          <a class="social__link" href="#instagram" aria-label="Instagram PanPan Bakery"><svg class="icon" aria-hidden="true"><use href="#i-instagram"/></svg></a>
+          <a class="social__link" href="#tiktok" aria-label="TikTok PanPan Bakery"><svg class="icon" aria-hidden="true"><use href="#i-tiktok"/></svg></a>
+          <a class="social__link" href="#zalo" aria-label="Zalo PanPan Bakery"><svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h2 class="footer-title">Ghé PanPan</h2>
+        <ul class="contact-list">
+          <li><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg><span>B13/43P Ấp 34, xã Tân Vĩnh Lộc,<br>TP. Hồ Chí Minh</span></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg><span>Mở cửa 7:00 – 21:30<br>tất cả các ngày</span></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><span>Hotline: <a href="tel:0397958157">0397 958 157</a></span></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg><span><a href="mailto:panpanbakery@gmail.com">panpanbakery@gmail.com</a></span></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="footer-title">Mua bánh</h2>
+        <ul class="footer-list">
+          <li><a href="#san-pham">Bánh kem sinh nhật</a></li>
+          <li><a href="#san-pham">Bánh ngọt &amp; bánh mì</a></li>
+          <li><a href="#theo-yeu-cau">Đặt bánh theo yêu cầu</a></li>
+          <li><a href="#san-pham">Quà 20/11 &amp; Noel</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="footer-title">Hỗ trợ</h2>
+        <ul class="footer-list">
+          <li><a href="#giao-hang">Chính sách giao hàng</a></li>
+          <li><a href="#doi-tra">Đổi trả &amp; hoàn tiền</a></li>
+          <li><a href="#bao-quan">Hướng dẫn bảo quản bánh</a></li>
+          <li><a href="#hoi-dap">Câu hỏi thường gặp</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-legal">
+        <span>© 2026 PanPan Bakery. Mã số doanh nghiệp: cập nhật sau khi đăng ký.</span>
+        <span class="bct-badge"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="14" fill="#E8F0FE" stroke="#2E5AAC" stroke-width="2"/><path d="M10 16.5l4 4 8-9" fill="none" stroke="#2E5AAC" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Đã thông báo Bộ Công Thương<small>Vị trí đặt logo chính thức (placeholder)</small></span></span>
+      </div>
+      <div class="pay-methods">
+        <span class="pay-methods__label">Thanh toán:</span>
+        <span class="pay-badge"><svg class="icon" aria-hidden="true"><use href="#i-cash"/></svg>Tiền mặt khi nhận (COD)</span>
+        <span class="pay-badge"><svg class="icon" aria-hidden="true"><use href="#i-qr"/></svg>Chuyển khoản VietQR</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="float-contact" aria-label="Liên hệ nhanh">
+  <a class="float-contact__zalo" href="#zalo" aria-label="Nhắn Zalo cho PanPan">Zalo</a>
+  <a class="float-contact__phone" href="tel:0397958157" aria-label="Gọi hotline 0397 958 157"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg></a>
+</div>
+
+<div class="toast" data-toast role="status" aria-live="polite">
+  <span class="toast__icon" aria-hidden="true"><svg viewBox="40 -12 120 140"><use href="#mascot-art"/></svg></span>
+  <span data-toast-text></span>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

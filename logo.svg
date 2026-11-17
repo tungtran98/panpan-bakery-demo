@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 72" width="260" height="72" role="img" aria-labelledby="t">
+  <title id="t">PanPan Bakery</title>
+  <!-- Direction A: soft pastel, playful. Original panda baker head with a chef toque. -->
+  <g transform="translate(2 0) scale(0.72)">
+    <!-- soft blob background -->
+    <circle cx="50" cy="54" r="46" fill="#FFE1E8"/>
+    <!-- ears -->
+    <circle cx="22" cy="44" r="12" fill="#3A2E39"/>
+    <circle cx="78" cy="44" r="12" fill="#3A2E39"/>
+    <!-- head -->
+    <ellipse cx="50" cy="63" rx="35" ry="30" fill="#FFFFFF" stroke="#3A2E39" stroke-width="3.5"/>
+    <!-- chef toque -->
+    <g stroke="#3A2E39" stroke-width="3.5" stroke-linejoin="round" fill="#FFFFFF">
+      <path d="M31 40 C22 38 20 24 31 20 C32 9 46 5 52 12 C58 5 72 9 72 20 C82 23 80 38 70 40 Z"/>
+      <rect x="31" y="34" width="39" height="11" rx="4"/>
+    </g>
+    <circle cx="51" cy="39.5" r="2.6" fill="#EF6F94"/>
+    <!-- eye patches -->
+    <ellipse cx="36" cy="63" rx="8" ry="10.5" transform="rotate(28 36 63)" fill="#3A2E39"/>
+    <ellipse cx="64" cy="63" rx="8" ry="10.5" transform="rotate(-28 64 63)" fill="#3A2E39"/>
+    <!-- eyes -->
+    <circle cx="37.5" cy="62" r="3.4" fill="#FFFFFF"/>
+    <circle cx="62.5" cy="62" r="3.4" fill="#FFFFFF"/>
+    <circle cx="38.6" cy="60.8" r="1.2" fill="#3A2E39"/>
+    <circle cx="61.4" cy="60.8" r="1.2" fill="#3A2E39"/>
+    <!-- cheeks -->
+    <ellipse cx="26" cy="75" rx="6" ry="3.6" fill="#F7A8BF"/>
+    <ellipse cx="74" cy="75" rx="6" ry="3.6" fill="#F7A8BF"/>
+    <!-- nose + smile -->
+    <ellipse cx="50" cy="73" rx="4.2" ry="3" fill="#3A2E39"/>
+    <path d="M44 78 Q47 82.5 50 78.5 Q53 82.5 56 78" fill="none" stroke="#3A2E39" stroke-width="2.6" stroke-linecap="round"/>
+  </g>
+  <!-- wordmark -->
+  <text x="82" y="42" font-family="'Baloo 2', 'Nunito', 'Arial Rounded MT Bold', sans-serif" font-size="38" font-weight="800" fill="#3A2E39" letter-spacing="-0.5">Pan<tspan fill="#EF6F94">Pan</tspan></text>
+  <text x="84" y="62" font-family="'Nunito', 'Arial Rounded MT Bold', sans-serif" font-size="11" font-weight="800" fill="#9A8A95" letter-spacing="2.4">BAKERY · TIỆM BÁNH</text>
+</svg>
